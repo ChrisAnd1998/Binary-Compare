@@ -4,6 +4,7 @@ Imports System.Threading
 Public Class Form1
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         con = True
+        TextBox3.Clear()
         ' TextBox3.Text = FileVersionInfo.GetVersionInfo(TextBox1.Text).ToString
 
         Dim versionInfo = FileVersionInfo.GetVersionInfo(TextBox1.Text)
