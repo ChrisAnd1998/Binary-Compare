@@ -44,8 +44,6 @@ Partial Class Form1
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(906, 20)
         Me.TextBox1.TabIndex = 0
-        Me.TextBox1.Text = "C:\Program Files\Adobe\Adobe Illustrator 2020\Support Files\Contents\Windows\Illu" &
-    "strator.exe.original.bak"
         '
         'Button1
         '
@@ -89,8 +87,6 @@ Partial Class Form1
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(900, 20)
         Me.TextBox2.TabIndex = 4
-        Me.TextBox2.Text = "C:\Program Files\Adobe\Adobe Illustrator 2020\Support Files\Contents\Windows\Illu" &
-    "strator.exe"
         '
         'Button3
         '
