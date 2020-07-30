@@ -120,6 +120,24 @@
   <metadata name="OpenFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="RichTextBox3.Text" xml:space="preserve">
+    <value> Private Sub Patch(ByVal TargetFile As String, ByVal FileOffset As Long, ByVal NewValue() As Byte)
+        Try
+            Dim br As BinaryReader = New BinaryReader(File.Open(TargetFile, FileMode.Open))
+            br.BaseStream.Position = FileOffset
+            Dim byteB As Byte
+            For Each byteB In NewValue
+                If (byteB.ToString &lt;&gt; String.Empty) Then
+                    br.BaseStream.WriteByte(byteB)
+                Else
+                    Exit For
+                End If
+            Next byteB
+            br.Close()
+        Catch
+        End Try
+    End Sub</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

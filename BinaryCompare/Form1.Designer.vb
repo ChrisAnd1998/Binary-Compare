@@ -34,6 +34,7 @@ Partial Class Form1
         Me.RichTextBox2 = New System.Windows.Forms.RichTextBox()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.RichTextBox3 = New System.Windows.Forms.RichTextBox()
         Me.SuspendLayout()
         '
         'TextBox1
@@ -41,14 +42,14 @@ Partial Class Form1
         Me.TextBox1.AllowDrop = True
         Me.TextBox1.Location = New System.Drawing.Point(62, 12)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(729, 20)
+        Me.TextBox1.Size = New System.Drawing.Size(906, 20)
         Me.TextBox1.TabIndex = 0
         Me.TextBox1.Text = "C:\Program Files\Adobe\Adobe Illustrator 2020\Support Files\Contents\Windows\Illu" &
     "strator.exe.original.bak"
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(797, 10)
+        Me.Button1.Location = New System.Drawing.Point(974, 10)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(28, 23)
         Me.Button1.TabIndex = 1
@@ -75,7 +76,7 @@ Partial Class Form1
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(797, 38)
+        Me.Button2.Location = New System.Drawing.Point(974, 38)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(28, 23)
         Me.Button2.TabIndex = 5
@@ -86,14 +87,14 @@ Partial Class Form1
         '
         Me.TextBox2.Location = New System.Drawing.Point(68, 40)
         Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(723, 20)
+        Me.TextBox2.Size = New System.Drawing.Size(900, 20)
         Me.TextBox2.TabIndex = 4
         Me.TextBox2.Text = "C:\Program Files\Adobe\Adobe Illustrator 2020\Support Files\Contents\Windows\Illu" &
     "strator.exe"
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(831, 10)
+        Me.Button3.Location = New System.Drawing.Point(1008, 10)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(75, 51)
         Me.Button3.TabIndex = 6
@@ -107,18 +108,20 @@ Partial Class Form1
         Me.RichTextBox1.ForeColor = System.Drawing.Color.White
         Me.RichTextBox1.Location = New System.Drawing.Point(12, 67)
         Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(894, 219)
+        Me.RichTextBox1.ReadOnly = True
+        Me.RichTextBox1.Size = New System.Drawing.Size(1072, 219)
         Me.RichTextBox1.TabIndex = 7
         Me.RichTextBox1.Text = ""
         '
         'RichTextBox2
         '
         Me.RichTextBox2.BackColor = System.Drawing.Color.Black
-        Me.RichTextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RichTextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RichTextBox2.ForeColor = System.Drawing.Color.White
         Me.RichTextBox2.Location = New System.Drawing.Point(12, 292)
         Me.RichTextBox2.Name = "RichTextBox2"
-        Me.RichTextBox2.Size = New System.Drawing.Size(894, 219)
+        Me.RichTextBox2.ReadOnly = True
+        Me.RichTextBox2.Size = New System.Drawing.Size(770, 244)
         Me.RichTextBox2.TabIndex = 8
         Me.RichTextBox2.Text = ""
         '
@@ -128,18 +131,28 @@ Partial Class Form1
         '
         'TextBox3
         '
-        Me.TextBox3.Location = New System.Drawing.Point(12, 517)
+        Me.TextBox3.Location = New System.Drawing.Point(12, 542)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.ReadOnly = True
-        Me.TextBox3.Size = New System.Drawing.Size(894, 20)
+        Me.TextBox3.Size = New System.Drawing.Size(1071, 20)
         Me.TextBox3.TabIndex = 9
+        '
+        'RichTextBox3
+        '
+        Me.RichTextBox3.Location = New System.Drawing.Point(788, 292)
+        Me.RichTextBox3.Name = "RichTextBox3"
+        Me.RichTextBox3.ReadOnly = True
+        Me.RichTextBox3.Size = New System.Drawing.Size(296, 244)
+        Me.RichTextBox3.TabIndex = 10
+        Me.RichTextBox3.Text = resources.GetString("RichTextBox3.Text")
         '
         'Form1
         '
         Me.AllowDrop = True
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(918, 548)
+        Me.ClientSize = New System.Drawing.Size(1095, 574)
+        Me.Controls.Add(Me.RichTextBox3)
         Me.Controls.Add(Me.TextBox3)
         Me.Controls.Add(Me.RichTextBox2)
         Me.Controls.Add(Me.RichTextBox1)
@@ -171,4 +184,5 @@ Partial Class Form1
     Friend WithEvents RichTextBox2 As RichTextBox
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents RichTextBox3 As RichTextBox
 End Class
