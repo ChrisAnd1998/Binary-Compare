@@ -4,6 +4,7 @@ Imports System.Threading
 Public Class Form1
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         con = True
+        m_bStop = False
         TextBox3.Clear()
         ' TextBox3.Text = FileVersionInfo.GetVersionInfo(TextBox1.Text).ToString
 
@@ -12,8 +13,8 @@ Public Class Form1
         TextBox3.AppendText(versionInfo.ProductName & " ")
         TextBox3.AppendText(versionInfo.ProductVersion)
 
-
-
+        RichTextBox5.Clear()
+        RichTextBox4.Clear()
         RichTextBox1.Clear()
         RichTextBox2.Clear()
         StartWriteDiff(TextBox1.Text, TextBox2.Text)
@@ -122,8 +123,8 @@ Public Class Form1
                             End If
 
                             nBytesToCompare = pFile1.Length - nPos1
-                            If nBytesToCompare > 16 Then
-                                nBytesToCompare = 16
+                            If nBytesToCompare > NumericUpDown1.Value Then
+                                nBytesToCompare = NumericUpDown1.Value
                             End If
 
                             nStartOfEqualBlock2 = FindBlock(nPos1, nPos2, pFile1, pFile2, nBytesToCompare, bFoundFirstEqual)
@@ -131,8 +132,9 @@ Public Class Form1
 
                             If nStartOfEqualBlock2 >= 0 Then
 
-                                For i = nPos2 To nStartOfEqualBlock2 - 1 Step 16
-                                    WriteBlockAdded(i, pFile2, If((nStartOfEqualBlock2 - i) > 16, 16, (nStartOfEqualBlock2 - i)))
+                                For i = nPos2 To nStartOfEqualBlock2 - 1 Step NumericUpDown1.Value
+                                    WriteBlockAdded(i, pFile2, If((nStartOfEqualBlock2 - i) > NumericUpDown1.Value, NumericUpDown1.Value, (nStartOfEqualBlock2 - i)))
+                                    WriteBlockOld(i, pFile1, pFile2, If((nStartOfEqualBlock2 - i) > NumericUpDown1.Value, NumericUpDown1.Value, (nStartOfEqualBlock2 - i)))
                                 Next i
 
                                 bFoundFirstEqual = True
@@ -141,7 +143,7 @@ Public Class Form1
                             Else
 
                             End If
-                            nPos1 += 16
+                            nPos1 += NumericUpDown1.Value
                         Loop
 
                         i = nPos2
@@ -154,8 +156,9 @@ Public Class Form1
                                 Exit Do
                             End If
 
-                            WriteBlockAdded(i, pFile2, If((pFile2.Length - i) > 16, 16, (pFile2.Length - i)))
-                            i += 16
+                            WriteBlockAdded(i, pFile2, If((pFile2.Length - i) > NumericUpDown1.Value, NumericUpDown1.Value, (pFile2.Length - i)))
+                            WriteBlockOld(i, pFile2, pFile1, If((pFile1.Length - i) > NumericUpDown1.Value, NumericUpDown1.Value, (pFile1.Length - i)))
+                            i += NumericUpDown1.Value
                         Loop
                     End If
                 End If
@@ -167,7 +170,7 @@ Public Class Form1
 
     End Sub
 
-    Private Shared Function FindBlock(ByVal nPos1 As Int32, ByVal nPos2 As Int32, ByVal pFile1() As Byte, ByVal pFile2() As Byte, ByVal nBytesToCompare As Int32, ByVal bFoundFirstEqual As Boolean) As Int32
+    Private Function FindBlock(ByVal nPos1 As Int32, ByVal nPos2 As Int32, ByVal pFile1() As Byte, ByVal pFile2() As Byte, ByVal nBytesToCompare As Int32, ByVal bFoundFirstEqual As Boolean) As Int32
         Dim nStartOfEqualBlock2 As Int32 = -1
 
         Dim bFound As Boolean = False
@@ -192,6 +195,9 @@ Public Class Form1
                     Exit Do
                 End If
                 j += 1
+                If con = False Then
+                    Exit Function
+                End If
             Loop
 
             If bFound Then
@@ -207,7 +213,37 @@ Public Class Form1
         Return nStartOfEqualBlock2
     End Function
 
+    Public Sub WriteBlockOld(ByVal nPos2 As Int32, ByVal pFile2() As Byte, ByVal pFile1() As Byte, ByVal nBytesAdded As Int32)
 
+        If con = False Then
+            Exit Sub
+        End If
+
+        RichTextBox4.AppendText(nPos2.ToString("X8") & " | ")
+        RichTextBox5.AppendText("patternreplace(finaltarget, {")
+
+        For i As Int32 = 0 To nBytesAdded - 1
+            RichTextBox4.AppendText(pFile2(nPos2 + i).ToString("X2") & " ")
+            RichTextBox5.AppendText("&h" & pFile2(nPos2 + i).ToString("X2") & ", ")
+        Next i
+
+        RichTextBox5.AppendText("}, {")
+
+
+        For i As Int32 = 0 To nBytesAdded - 1
+
+            RichTextBox5.AppendText("&h" & pFile1(nPos2 + i).ToString("X2") & ", ")
+        Next i
+
+        RichTextBox5.AppendText("})")
+
+
+        RichTextBox4.AppendText(vbNewLine)
+        RichTextBox5.AppendText(vbNewLine)
+
+        RichTextBox5.Text = RichTextBox5.Text.Replace(", })", "})")
+        RichTextBox5.Text = RichTextBox5.Text.Replace(", },", "},")
+    End Sub
 
     Public Sub WriteBlockAdded(ByVal nPos2 As Int32, ByVal pFile2() As Byte, ByVal nBytesAdded As Int32)
 
@@ -287,8 +323,10 @@ Public Class Form1
 
             If (result = DialogResult.OK) Then
                 con = True
+                m_bStop = False
             Else
                 con = False
+                m_bStop = True
             End If
         End If
     End Sub

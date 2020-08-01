@@ -138,6 +138,32 @@
         End Try
     End Sub</value>
   </data>
+  <data name="RichTextBox6.Text" xml:space="preserve">
+    <value>  Sub patternreplace(ByVal bfile As String, ByVal bfind As Byte(), ByVal breplace As Byte())
+        Dim find As Byte() = bfind
+        Dim replace As Byte() = breplace
+        Dim file As Byte() = IO.File.ReadAllBytes(bfile)
+        Dim i, j As Integer, iMax As Integer = file.Length - find.Length
+
+        For i = 0 To iMax
+
+            For j = 0 To find.Length - 1
+                If file(i + j) &lt;&gt; find(j) Then Exit For
+            Next
+
+            If j = find.Length Then Exit For
+        Next
+
+        If i &lt;= iMax Then
+
+            For j = 0 To find.Length - 1
+                file(i + j) = replace(j)
+            Next
+
+            IO.File.WriteAllBytes(bfile, file)
+        End If
+    End Sub</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

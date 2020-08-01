@@ -35,19 +35,28 @@ Partial Class Form1
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.RichTextBox3 = New System.Windows.Forms.RichTextBox()
+        Me.RichTextBox4 = New System.Windows.Forms.RichTextBox()
+        Me.RichTextBox5 = New System.Windows.Forms.RichTextBox()
+        Me.RichTextBox6 = New System.Windows.Forms.RichTextBox()
+        Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
+        Me.Label3 = New System.Windows.Forms.Label()
+        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TextBox1
         '
         Me.TextBox1.AllowDrop = True
+        Me.TextBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TextBox1.Location = New System.Drawing.Point(62, 12)
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(906, 20)
+        Me.TextBox1.Size = New System.Drawing.Size(1189, 20)
         Me.TextBox1.TabIndex = 0
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(974, 10)
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button1.Location = New System.Drawing.Point(1257, 10)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(28, 23)
         Me.Button1.TabIndex = 1
@@ -74,7 +83,8 @@ Partial Class Form1
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(974, 38)
+        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button2.Location = New System.Drawing.Point(1257, 38)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(28, 23)
         Me.Button2.TabIndex = 5
@@ -83,31 +93,37 @@ Partial Class Form1
         '
         'TextBox2
         '
+        Me.TextBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TextBox2.Location = New System.Drawing.Point(68, 40)
         Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(900, 20)
+        Me.TextBox2.Size = New System.Drawing.Size(1183, 20)
         Me.TextBox2.TabIndex = 4
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(1008, 10)
+        Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button3.Location = New System.Drawing.Point(1304, 10)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(75, 51)
+        Me.Button3.Size = New System.Drawing.Size(113, 23)
         Me.Button3.TabIndex = 6
         Me.Button3.Text = "Scan"
         Me.Button3.UseVisualStyleBackColor = True
         '
         'RichTextBox1
         '
+        Me.RichTextBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.RichTextBox1.BackColor = System.Drawing.Color.Black
         Me.RichTextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RichTextBox1.ForeColor = System.Drawing.Color.White
-        Me.RichTextBox1.Location = New System.Drawing.Point(12, 67)
+        Me.RichTextBox1.ForeColor = System.Drawing.Color.Lime
+        Me.RichTextBox1.Location = New System.Drawing.Point(716, 67)
         Me.RichTextBox1.Name = "RichTextBox1"
         Me.RichTextBox1.ReadOnly = True
-        Me.RichTextBox1.Size = New System.Drawing.Size(1072, 219)
+        Me.RichTextBox1.Size = New System.Drawing.Size(701, 219)
         Me.RichTextBox1.TabIndex = 7
         Me.RichTextBox1.Text = ""
+        Me.RichTextBox1.WordWrap = False
         '
         'RichTextBox2
         '
@@ -117,9 +133,10 @@ Partial Class Form1
         Me.RichTextBox2.Location = New System.Drawing.Point(12, 292)
         Me.RichTextBox2.Name = "RichTextBox2"
         Me.RichTextBox2.ReadOnly = True
-        Me.RichTextBox2.Size = New System.Drawing.Size(770, 244)
+        Me.RichTextBox2.Size = New System.Drawing.Size(698, 201)
         Me.RichTextBox2.TabIndex = 8
         Me.RichTextBox2.Text = ""
+        Me.RichTextBox2.WordWrap = False
         '
         'OpenFileDialog1
         '
@@ -127,27 +144,97 @@ Partial Class Form1
         '
         'TextBox3
         '
-        Me.TextBox3.Location = New System.Drawing.Point(12, 542)
+        Me.TextBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextBox3.Location = New System.Drawing.Point(12, 696)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.ReadOnly = True
-        Me.TextBox3.Size = New System.Drawing.Size(1071, 20)
+        Me.TextBox3.Size = New System.Drawing.Size(1402, 20)
         Me.TextBox3.TabIndex = 9
         '
         'RichTextBox3
         '
-        Me.RichTextBox3.Location = New System.Drawing.Point(788, 292)
+        Me.RichTextBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.RichTextBox3.Location = New System.Drawing.Point(12, 499)
         Me.RichTextBox3.Name = "RichTextBox3"
         Me.RichTextBox3.ReadOnly = True
-        Me.RichTextBox3.Size = New System.Drawing.Size(296, 244)
+        Me.RichTextBox3.Size = New System.Drawing.Size(698, 191)
         Me.RichTextBox3.TabIndex = 10
         Me.RichTextBox3.Text = resources.GetString("RichTextBox3.Text")
+        Me.RichTextBox3.WordWrap = False
+        '
+        'RichTextBox4
+        '
+        Me.RichTextBox4.BackColor = System.Drawing.Color.Black
+        Me.RichTextBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RichTextBox4.ForeColor = System.Drawing.Color.Red
+        Me.RichTextBox4.Location = New System.Drawing.Point(12, 67)
+        Me.RichTextBox4.Name = "RichTextBox4"
+        Me.RichTextBox4.ReadOnly = True
+        Me.RichTextBox4.Size = New System.Drawing.Size(698, 219)
+        Me.RichTextBox4.TabIndex = 11
+        Me.RichTextBox4.Text = ""
+        Me.RichTextBox4.WordWrap = False
+        '
+        'RichTextBox5
+        '
+        Me.RichTextBox5.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.RichTextBox5.BackColor = System.Drawing.Color.Black
+        Me.RichTextBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RichTextBox5.ForeColor = System.Drawing.Color.White
+        Me.RichTextBox5.Location = New System.Drawing.Point(716, 292)
+        Me.RichTextBox5.Name = "RichTextBox5"
+        Me.RichTextBox5.ReadOnly = True
+        Me.RichTextBox5.Size = New System.Drawing.Size(701, 201)
+        Me.RichTextBox5.TabIndex = 13
+        Me.RichTextBox5.Text = ""
+        Me.RichTextBox5.WordWrap = False
+        '
+        'RichTextBox6
+        '
+        Me.RichTextBox6.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.RichTextBox6.Location = New System.Drawing.Point(716, 499)
+        Me.RichTextBox6.Name = "RichTextBox6"
+        Me.RichTextBox6.ReadOnly = True
+        Me.RichTextBox6.Size = New System.Drawing.Size(701, 191)
+        Me.RichTextBox6.TabIndex = 14
+        Me.RichTextBox6.Text = resources.GetString("RichTextBox6.Text")
+        Me.RichTextBox6.WordWrap = False
+        '
+        'NumericUpDown1
+        '
+        Me.NumericUpDown1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.NumericUpDown1.Location = New System.Drawing.Point(1374, 40)
+        Me.NumericUpDown1.Name = "NumericUpDown1"
+        Me.NumericUpDown1.Size = New System.Drawing.Size(42, 20)
+        Me.NumericUpDown1.TabIndex = 15
+        Me.NumericUpDown1.Value = New Decimal(New Integer() {32, 0, 0, 0})
+        '
+        'Label3
+        '
+        Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(1301, 44)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(67, 13)
+        Me.Label3.TabIndex = 16
+        Me.Label3.Text = "Bytes Count:"
         '
         'Form1
         '
         Me.AllowDrop = True
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1095, 574)
+        Me.ClientSize = New System.Drawing.Size(1429, 727)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.NumericUpDown1)
+        Me.Controls.Add(Me.RichTextBox6)
+        Me.Controls.Add(Me.RichTextBox5)
+        Me.Controls.Add(Me.RichTextBox4)
         Me.Controls.Add(Me.RichTextBox3)
         Me.Controls.Add(Me.TextBox3)
         Me.Controls.Add(Me.RichTextBox2)
@@ -159,11 +246,10 @@ Partial Class Form1
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.TextBox1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MaximizeBox = False
         Me.Name = "Form1"
         Me.Text = "Binary Compare"
+        CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -181,4 +267,9 @@ Partial Class Form1
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents TextBox3 As TextBox
     Friend WithEvents RichTextBox3 As RichTextBox
+    Friend WithEvents RichTextBox4 As RichTextBox
+    Friend WithEvents RichTextBox5 As RichTextBox
+    Friend WithEvents RichTextBox6 As RichTextBox
+    Friend WithEvents NumericUpDown1 As NumericUpDown
+    Friend WithEvents Label3 As Label
 End Class
